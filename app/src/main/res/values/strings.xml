@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GIF to Video</string>
+    <string name="storage_permission_denied">Please grant storage permission</string>
+    <string name="usage">Save GIF images to the gallery, then open the app</string>
+    <string name="convert_to_video">Convert to Video</string>
+    <string name="convert">Convert</string>
+    <string name="loading">Loading</string>
+    <string name="converting">Converting...</string>
+    <string name="convert_finish">Convert completed, saved to gallery, The path：</string>
+    <string name="convert_fail">Convert failed，Please try again</string>
+    <string name="hint">Tip</string>
+    <string name="ok">OK</string>
+    <string name="about">About</string>
+    <string name="about_text">Convert a GIF image to Video.\nFeedback：twitter.com/CoolSnow0927\nVersion：v</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="feedback_link">https://twitter.com/CoolSnow0927</string>
+</resources>

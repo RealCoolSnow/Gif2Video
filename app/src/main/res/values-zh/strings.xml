@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GIF转视频</string>
+    <string name="storage_permission_denied">请授予软件存储权限</string>
+    <string name="usage">请将GIF动图保存到图库，再打开本软件</string>
+    <string name="convert_to_video">转为视频</string>
+    <string name="convert">转换</string>
+    <string name="loading">加载中</string>
+    <string name="converting">转换中...</string>
+    <string name="convert_finish">转换完成，已保存到图库，路径：</string>
+    <string name="convert_fail">转换出错了，请重试</string>
+    <string name="hint">提示</string>
+    <string name="ok">我知道了</string>
+    <string name="about">关于</string>
+    <string name="about_text">本软件将GIF动图转换为MP4视频。\n意见反馈：670696652（QQ）\n版本：v</string>
+    <string name="cancel">取消</string>
+    <string name="update">升级</string>
+    <string name="feedback_link">https://www.joy666.cn/app/gif2mp4_group</string>
+</resources>
