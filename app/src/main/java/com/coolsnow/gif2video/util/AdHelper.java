@@ -25,10 +25,10 @@ import com.orhanobut.logger.Logger;
  * Description:
  */
 public class AdHelper {
-    private static final boolean IS_TEST = BuildConfig.DEBUG;
+    private static final boolean IS_TEST = false;//BuildConfig.DEBUG;
     /**
      * app id: ca-app-pub-9994404165340290~2261077193
-     * 开屏广告: ca-app-pub-9994404165340290/3103385578
+     * ca-app-pub-3940256099942544~3347511713(test)
      * 插页式广告: ca-app-pub-9994404165340290/8303741368
      * ca-app-pub-3940256099942544/1033173712(test)
      * 横幅广告: ca-app-pub-9994404165340290/2329020645

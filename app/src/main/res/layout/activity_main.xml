@@ -43,6 +43,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
             android:onClick="onPickImage"
-            android:src="@drawable/ic_add" />
+            android:src="@drawable/ic_add"
+            android:visibility="gone" />
     </RelativeLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
