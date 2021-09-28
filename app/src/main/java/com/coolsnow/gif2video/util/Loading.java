@@ -47,7 +47,11 @@ public class Loading {
 
     public void dismiss() {
         if (dialog != null) {
-            dialog.dismiss();
+            try {
+                dialog.dismiss();
+            } catch (Throwable e) {
+                
+            }
             dialog = null;
         }
     }
