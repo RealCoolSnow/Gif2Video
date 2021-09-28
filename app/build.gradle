@@ -9,7 +9,7 @@ android {
         minSdkVersion 18
         targetSdkVersion 30
         multiDexEnabled true
-        versionCode 121
+        versionCode 1210
         versionName "1.2.1"
     }
 
@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.google.android.material:material:1.2.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.11.0"
     //umeng
     implementation 'com.umeng.umsdk:analytics:8.0.0'
     implementation 'com.umeng.umsdk:common:2.0.0'

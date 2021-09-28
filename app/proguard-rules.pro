@@ -27,3 +27,4 @@ public static final int *;
 -keep class com.heytap.** {*;}
 -keep class a.** {*;}
 -keep class com.vivo.** {*;}
+-keep class com.coolsnow.gif2video.glide.UnsafeOkHttpGlideModule
