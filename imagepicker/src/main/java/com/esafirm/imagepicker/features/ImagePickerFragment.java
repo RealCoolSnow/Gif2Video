@@ -296,7 +296,7 @@ public class ImagePickerFragment extends Fragment implements ImagePickerView {
     private void requestWriteExternalPermission() {
         logger.w("Write External permission is not granted. Requesting permission");
 
-        final String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        final String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             requestPermissions(permissions, RC_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE);

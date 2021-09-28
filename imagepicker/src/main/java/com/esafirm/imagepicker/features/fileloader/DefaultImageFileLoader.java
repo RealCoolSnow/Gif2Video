@@ -102,7 +102,7 @@ public class DefaultImageFileLoader implements ImageFileLoader {
 
         @Override
         public void run() {
-            Cursor cursor;
+            Cursor cursor = null;
             if (onlyVideo) {
                 String selection = MediaStore.Files.FileColumns.MEDIA_TYPE + "="
                         + MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
@@ -118,8 +118,12 @@ public class DefaultImageFileLoader implements ImageFileLoader {
                 cursor = context.getContentResolver().query(MediaStore.Files.getContentUri("external"), projection,
                         selection, null, MediaStore.Images.Media.DATE_ADDED);
             } else {
-                cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection,
-                        null, null, MediaStore.Images.Media.DATE_ADDED);
+                try {
+                    cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection,
+                            null, null, MediaStore.Images.Media.DATE_ADDED);
+                } catch (Throwable e) {
+
+                }
             }
 
             if (cursor == null) {
