@@ -89,7 +89,6 @@ public class ConvertActivity extends BaseActivity implements GIFListener {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setTitle(R.string.convert_to_video);
         new DefaultImageLoader().loadImage(mImagePath, binding.gifImage, ImageType.GALLERY);
-        AdHelper.getInstance().addAdView(this, binding.adContainer);
     }
 
     @Override
