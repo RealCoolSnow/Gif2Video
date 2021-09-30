@@ -1,5 +1,7 @@
 package com.coolsnow.gif2video.util;
 
+import static com.google.android.gms.ads.RequestConfiguration.TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -8,12 +10,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.coolsnow.gif2video.BuildConfig;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.orhanobut.logger.Logger;
@@ -38,6 +40,8 @@ public class AdHelper {
     private InterstitialAd interstitialAd;
 
     private AdHelper() {
+        RequestConfiguration config = new RequestConfiguration.Builder().setTagForChildDirectedTreatment(TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE).build();
+        MobileAds.setRequestConfiguration(config);
         adRequest = new AdRequest.Builder().build();
     }
 
