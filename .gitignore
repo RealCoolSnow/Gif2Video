@@ -9,3 +9,5 @@
 .cxx
 /easypermissions/build
 /imagepicker/build
+*.apk
+release

@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    libVersion = '1.0.0'
+    libGroup = 'com.otaliastudios.gif'
+    libName = 'GIFCompressor'
+    libDescription = 'Compresses your GIFs into lightweight MP4 video using fast, hardware accelerated encoders. Supports cropping, rotation, GIF concatenation and much more.'
+    libArtifactId = 'compressor'
+    githubUrl = "https://github.com/natario1/${libName}"
+    githubGit = "https://github.com/natario1/${libName}.git"
+    libLicenseName = 'MIT License'
+    libLicenseUrl = 'http://www.opensource.org/licenses/mit-license.php'
+}
+
+// Required by bintray
+version = libVersion
+group = libGroup
+archivesBaseName = libArtifactId
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 29
+        versionName libVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    api "com.github.bumptech.glide:glide:4.9.0"
+    api "com.otaliastudios.opengl:egloo:0.4.0"
+    api "androidx.annotation:annotation:1.1.0"
+
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'org.mockito:mockito-android:2.28.2'
+}
