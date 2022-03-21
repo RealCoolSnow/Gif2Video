@@ -15,4 +15,5 @@
     <string name="cancel">Cancel</string>
     <string name="update">Update</string>
     <string name="feedback_link">https://twitter.com/CoolSnow0927</string>
+    <string name="repeat_count">Repeat #</string>
 </resources>

@@ -19,6 +19,27 @@
             android:background="#f0f0f0" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat_count"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/sp_repeat_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/repeat_count" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_convert"

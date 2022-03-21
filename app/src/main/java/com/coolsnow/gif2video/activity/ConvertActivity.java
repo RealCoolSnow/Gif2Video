@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -91,6 +93,12 @@ public class ConvertActivity extends BaseActivity implements GIFListener {
         new DefaultImageLoader().loadImage(mImagePath, binding.gifImage, ImageType.GALLERY);
     }
 
+    private int getRepeatCount() {
+        Object selected = binding.spRepeatCount.getSelectedItem();
+        String repeatCount = selected != null ? selected.toString() : "";
+        return TextUtils.isEmpty(repeatCount) ? 1 : Integer.parseInt(repeatCount);
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -141,7 +149,10 @@ public class ConvertActivity extends BaseActivity implements GIFListener {
         setIsCompressing(true);
         DataSink sink = new DefaultDataSink(mOutputFile.getAbsolutePath());
         GIFOptions.Builder builder = GIFCompressor.into(sink);
-        builder.addDataSource(this, mImagePath);
+        int repeatCount = getRepeatCount();
+        for (int i = 0; i < repeatCount; i++) {
+            builder.addDataSource(this, mImagePath);
+        }
         mCompressionFuture = builder.setListener(this)
                 .setStrategy(mStrategy)
                 .setRotation(rotation)
