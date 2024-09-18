@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity implements ImagePickerInteraction
             ft.commit();
         }
         initView();
-        checkUpdate();
+//        checkUpdate();
         //loadAd();
         AdHelper.getInstance().init(this);
         AdHelper.getInstance().addAdView(this, binding.adContainer);

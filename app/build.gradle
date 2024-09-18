@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.coolsnow.gif2video"
-        minSdkVersion 18
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 34
         multiDexEnabled true
-        versionCode 1300
-        versionName "1.3.0"
+        versionCode 2000
+        versionName "2.0.0"
     }
 
     viewBinding {
@@ -57,7 +57,7 @@ dependencies {
     //----kprogresshud
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //okhttp
-    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
+//    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
     // admob
-    implementation 'com.google.android.gms:play-services-ads:20.3.0'
+    implementation("com.google.android.gms:play-services-ads:22.3.0")
 }
