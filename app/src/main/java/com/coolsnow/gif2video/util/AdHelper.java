@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.coolsnow.gif2video.BuildConfig;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -27,7 +28,7 @@ import com.orhanobut.logger.Logger;
  * Description:
  */
 public class AdHelper {
-    private static final boolean IS_TEST = false;//BuildConfig.DEBUG;
+    private static final boolean IS_TEST = BuildConfig.DEBUG;
     /**
      * app id: ca-app-pub-9994404165340290~2261077193
      * ca-app-pub-3940256099942544~3347511713(test)
@@ -57,6 +58,10 @@ public class AdHelper {
         return IS_TEST ? "ca-app-pub-3940256099942544/6300978111" : "ca-app-pub-9994404165340290/2329020645";
     }
 
+    public String getAppOpenId() {
+        return IS_TEST ? "ca-app-pub-3940256099942544/9257395921" : "ca-app-pub-9994404165340290/4199245900";
+    }
+
     public void init(Context context) {
         MobileAds.initialize(context, initializationStatus -> {
             Logger.d("init: " + initializationStatus);
@@ -77,7 +82,7 @@ public class AdHelper {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         AdHelper.this.interstitialAd = null;
-                        Logger.d("onAdFailedToLoad - onAdLoaded");
+                        Logger.d("onAdFailedToLoad - onAdLoaded:" + loadAdError);
                     }
                 });
     }

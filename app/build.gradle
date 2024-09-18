@@ -60,4 +60,5 @@ dependencies {
 //    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
     // admob
     implementation("com.google.android.gms:play-services-ads:22.3.0")
+    //implementation("androidx.lifecycle:lifecycle-process:2.8.4")
 }
