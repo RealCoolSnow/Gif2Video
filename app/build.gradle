@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 34
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.coolsnow.gif2video"
@@ -52,13 +51,13 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation "com.github.bumptech.glide:okhttp3-integration:4.11.0"
     //umeng
-    implementation 'com.umeng.umsdk:analytics:8.0.0'
-    implementation 'com.umeng.umsdk:common:2.0.0'
+    //implementation 'com.umeng.umsdk:analytics:8.0.0'
+    //implementation 'com.umeng.umsdk:common:2.0.0'
     //----kprogresshud
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //okhttp
 //    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
     // admob
     implementation("com.google.android.gms:play-services-ads:22.3.0")
-    //implementation("androidx.lifecycle:lifecycle-process:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-process:2.8.4")
 }
