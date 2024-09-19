@@ -5,13 +5,18 @@ android {
 
     defaultConfig {
         applicationId "com.coolsnow.gif2video"
+        namespace("com.coolsnow.gif2video")
         minSdkVersion 21
         targetSdkVersion 34
         multiDexEnabled true
-        versionCode 2000
+        versionCode 2001
         versionName "2.0.0"
     }
 
+    lintOptions {
+        warning('all')
+        warningsAsErrors false
+    }
     viewBinding {
         enabled = true
     }

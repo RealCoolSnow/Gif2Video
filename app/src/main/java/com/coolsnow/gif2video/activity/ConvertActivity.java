@@ -37,7 +37,7 @@ import com.otaliastudios.gif.strategy.Strategy;
 import com.otaliastudios.gif.strategy.size.AspectRatioResizer;
 import com.otaliastudios.gif.strategy.size.FractionResizer;
 import com.otaliastudios.gif.strategy.size.PassThroughResizer;
-import com.umeng.analytics.MobclickAgent;
+//import com.umeng.analytics.MobclickAgent;
 
 import java.io.File;
 import java.io.IOException;
@@ -110,10 +110,8 @@ public class ConvertActivity extends BaseActivity implements GIFListener {
     }
 
     public void onConvert(View view) {
-        switch (view.getId()) {
-            case R.id.btn_convert:
-                convert();
-                break;
+        if (view.getId() == R.id.btn_convert) {
+            convert();
         }
     }
 
@@ -177,21 +175,21 @@ public class ConvertActivity extends BaseActivity implements GIFListener {
         Logger.d("Compression took " + (SystemClock.uptimeMillis() - mStartTime) + "ms");
         onCompressionFinished(true, "Compressed video placed on " + mOutputFile);
         showSuccess();
-        MobclickAgent.onEvent(this, "convert_success", Util.sysInfo());
+//        MobclickAgent.onEvent(this, "convert_success", Util.sysInfo());
     }
 
     @Override
     public void onGIFCompressionCanceled() {
         onCompressionFinished(false, "GIFCompressor canceled.");
         Toast.makeText(this, R.string.convert_fail, Toast.LENGTH_SHORT).show();
-        MobclickAgent.onEvent(this, "convert_cancel", Util.sysInfo());
+//        MobclickAgent.onEvent(this, "convert_cancel", Util.sysInfo());
     }
 
     @Override
     public void onGIFCompressionFailed(@NonNull Throwable exception) {
         onCompressionFinished(false, "GIFCompressor error occurred. " + exception.getMessage());
         Toast.makeText(this, R.string.convert_fail, Toast.LENGTH_SHORT).show();
-        MobclickAgent.onEvent(this, "convert_fail", exception.getMessage() + " " + Util.sysInfo());
+//        MobclickAgent.onEvent(this, "convert_fail", exception.getMessage() + " " + Util.sysInfo());
     }
 
     private void onCompressionFinished(boolean isSuccess, @NonNull String toastMessage) {

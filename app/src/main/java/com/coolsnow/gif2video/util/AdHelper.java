@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.coolsnow.gif2video.BuildConfig;
+//import com.coolsnow.gif2video.BuildConfig;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -28,7 +28,7 @@ import com.orhanobut.logger.Logger;
  * Description:
  */
 public class AdHelper {
-    private static final boolean IS_TEST = BuildConfig.DEBUG;
+    private static final boolean IS_TEST = false;//BuildConfig.DEBUG;
     /**
      * app id: ca-app-pub-9994404165340290~2261077193
      * ca-app-pub-3940256099942544~3347511713(test)

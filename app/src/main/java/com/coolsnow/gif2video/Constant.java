@@ -4,8 +4,8 @@ package com.coolsnow.gif2video;
  * Created by coolsnow on 2020/3/24.
  */
 public class Constant {
-    public static final boolean DEBUG = BuildConfig.DEBUG;
-    public static final String UMENG_KEY = "5e7aeac7167edd603c000011";
+    public static final boolean DEBUG = false;//BuildConfig.DEBUG;
+//    public static final String UMENG_KEY = "5e7aeac7167edd603c000011";
     //public static final String URL_GROUP = "https://www.joy666.cn/app/gif2mp4_group";
     public static final String URL_API = "https://www.joy666.cn/app";
 

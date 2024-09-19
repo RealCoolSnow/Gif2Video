@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 
 ext {
     libVersion = '1.0.0'
@@ -22,6 +22,7 @@ android {
     compileSdkVersion 34
 
     defaultConfig {
+        namespace("com.otaliastudios.gif")
         minSdkVersion 18
         targetSdkVersion 34
         versionName libVersion
