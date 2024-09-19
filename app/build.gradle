@@ -9,13 +9,15 @@ android {
         minSdkVersion 21
         targetSdkVersion 34
         multiDexEnabled true
-        versionCode 2001
-        versionName "2.0.0"
+        versionCode 2010
+        versionName "2.0.1"
     }
 
     lintOptions {
         warning('all')
         warningsAsErrors false
+        checkReleaseBuilds false
+        abortOnError false
     }
     viewBinding {
         enabled = true

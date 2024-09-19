@@ -6,8 +6,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.DefaultLifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.coolsnow.gif2video.util.AdHelper;
@@ -15,12 +16,10 @@ import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.appopen.AppOpenAd;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-//import com.umeng.analytics.MobclickAgent;
-//import com.umeng.commonsdk.UMConfigure;
+
 
 import java.util.Date;
 
@@ -28,7 +27,7 @@ import java.util.Date;
  * Created by coolsnow on 2020/3/24.
  */
 public class Application extends android.app.Application
-        implements android.app.Application.ActivityLifecycleCallbacks, DefaultLifecycleObserver {
+        implements android.app.Application.ActivityLifecycleCallbacks, LifecycleObserver {
     private static Application _Application;
     private AppOpenAdManager appOpenAdManager;
     private Activity currentActivity;
@@ -41,7 +40,6 @@ public class Application extends android.app.Application
     public void onCreate() {
         super.onCreate();
         _Application = this;
-        this.registerActivityLifecycleCallbacks(this);
 //        initUmeng();
         if (Constant.DEBUG) {
             Logger.addLogAdapter(new AndroidLogAdapter());
@@ -57,21 +55,25 @@ public class Application extends android.app.Application
         Logger.d("onCreate");
     }
 
-//    private void initUmeng() {
+    //    private void initUmeng() {
 //        UMConfigure.init(this, Constant.UMENG_KEY, "google", UMConfigure.DEVICE_TYPE_PHONE, null);
 //        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
 //        UMConfigure.setLogEnabled(Constant.DEBUG);
 //    }
-
-    /**
-     * DefaultLifecycleObserver method that shows the app open ad when the app moves to foreground.
-     */
-    @Override
-    public void onStart(@NonNull LifecycleOwner owner) {
-//        DefaultLifecycleObserver.super.onStart(owner);
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    protected void onMoveToForeground() {
         // Show the ad (if available) when the app moves to foreground.
         appOpenAdManager.showAdIfAvailable(currentActivity);
     }
+    /**
+     * DefaultLifecycleObserver method that shows the app open ad when the app moves to foreground.
+     */
+//    @Override
+//    public void onStart(@NonNull LifecycleOwner owner) {
+////        DefaultLifecycleObserver.super.onStart(owner);
+//        // Show the ad (if available) when the app moves to foreground.
+////        appOpenAdManager.showAdIfAvailable(currentActivity);
+//    }
 
     /**
      * ActivityLifecycleCallback methods.
@@ -172,7 +174,7 @@ public class Application extends android.app.Application
          */
         private void loadAd(Context context) {
             // Do not load ad if there is an unused ad or one is already loading.
-            if (isLoadingAd || isAdAvailable()) {
+            if (isLoadingAd || appOpenAd != null) {
                 return;
             }
 
