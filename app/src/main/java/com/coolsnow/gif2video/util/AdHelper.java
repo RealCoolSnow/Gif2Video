@@ -39,7 +39,7 @@ public class AdHelper {
      */
     private AdRequest adRequest;
     private InterstitialAd interstitialAd;
-
+    private boolean isIniting = false;
     private AdHelper() {
         RequestConfiguration config = new RequestConfiguration.Builder().setTagForChildDirectedTreatment(TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE).build();
         MobileAds.setRequestConfiguration(config);
@@ -63,9 +63,14 @@ public class AdHelper {
     }
 
     public void init(Context context) {
+        if(isIniting) {
+            return;
+        }
+        isIniting = true;
         MobileAds.initialize(context, initializationStatus -> {
             Logger.d("init: " + initializationStatus);
             //加载广告
+            isIniting = false;
             this.loadInterstitialAd(context);
         });
     }
